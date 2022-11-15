@@ -20,6 +20,5 @@ public extension BottomSheet {
     /// - Returns: A BottomSheet that can be resized.
     func sheetGeometries(_ action: @escaping (GeometryProxy) -> Void) {
         self.configuration.sheetGeometries = action
-        return self
     }
 }

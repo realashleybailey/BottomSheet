@@ -20,6 +20,5 @@ public extension BottomSheet {
     /// - Returns: A BottomSheet that can be resized.
     func sheetHeight(_ action: @escaping (CGFloat) -> Void) {
         self.configuration.sheetHeight = action
-        return self
     }
 }

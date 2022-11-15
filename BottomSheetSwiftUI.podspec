@@ -14,8 +14,8 @@ Pod::Spec.new do |spec|
                                   'https://user-images.githubusercontent.com/63545066/132514347-57c5397b-ec03-4716-8e01-4e693082e844.gif',
                                   'https://user-images.githubusercontent.com/63545066/132514283-b14b2977-c5d1-4b49-96b1-19995cd5a41f.gif' ]
   
-  spec.ios.deployment_target  = '13.0'
-  spec.osx.deployment_target  = '10.15'
+  spec.ios.deployment_target  = '14.0'
+  spec.osx.deployment_target  = '11.00'
   
   spec.source_files           = 'Sources/BottomSheet/**/*.swift'
   spec.resource_bundle        = { 'BottomSheet_BottomSheet' => 'Sources/BottomSheet/**/*.xcassets' }

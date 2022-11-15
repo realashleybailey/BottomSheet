@@ -33,8 +33,13 @@ internal extension BottomSheetView {
     
     func bottomSheet(with geometry: GeometryProxy) -> some View {
         VStack {
+            
             Spacer()
-            Text("TESTOMG")
+            
+            if let aboveContent = self.aboveContent {
+                aboveContent
+            }
+            
             VStack(
                 alignment: .center,
                 spacing: 0

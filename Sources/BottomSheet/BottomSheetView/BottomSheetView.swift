@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-internal struct BottomSheetView<HContent: View, MContent: View>: View {
+internal struct BottomSheetView<AContent: View, HContent: View, MContent: View>: View {
     
     // For iPhone landscape and iPad support
 #if !os(macOS)
@@ -33,7 +33,7 @@ internal struct BottomSheetView<HContent: View, MContent: View>: View {
 #endif
     
     // Views
-    let aboveContent: HContent?
+    let aboveContent: AContent?
     let headerContent: HContent?
     
     let mainContent: MContent

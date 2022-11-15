@@ -53,7 +53,7 @@ internal class BottomSheetConfiguration: Equatable {
     var isFlickThroughEnabled: Bool = true
     var isResizable: Bool = true
     var sheetGeometries: ((GeometryProxy) -> Void)?
-    var sheetHeight: ((CGFloat) -> Void)?
+    var sheetHeight: ((CGSize) -> Void)?
     var isSwipeToDismissEnabled: Bool = false
     var isTapToDismissEnabled: Bool = false
     var onDismiss: () -> Void = {}

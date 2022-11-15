@@ -16,10 +16,6 @@ internal extension BottomSheetView {
             dragIndicatorAction(geometry)
         } else {
 
-            if let sheetGeometries = self.configuration.sheetGeometries {
-                sheetGeometries(geometry)
-            }
-
             // An array with all switchablePositions sorted by height (low to high),
             // excluding .dynamic..., .hidden and the current position
             let switchablePositions = self.getSwitchablePositions(with: geometry)
@@ -27,10 +23,6 @@ internal extension BottomSheetView {
             // The height of the currentBottomSheetPosition; if nil main content height is used
             let currentHeight = self.currentBottomSheetHeight(with: geometry)
 
-            if let sheetHeight = self.configuration.sheetHeight {
-                sheetHeight(currentHeight)
-            }
-            
             switch self.bottomSheetPosition {
             case .hidden:
                 return

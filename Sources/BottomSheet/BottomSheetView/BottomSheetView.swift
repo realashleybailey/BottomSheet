@@ -58,6 +58,9 @@ internal struct BottomSheetView<HContent: View, MContent: View>: View {
                     
                     // The BottomSheet itself
                     self.bottomSheet(with: geometry)
+                        .onChange(of: geometry.size) { newValue in
+                            print(newValue)
+                        }
                 }
             }
             // Animate value changes

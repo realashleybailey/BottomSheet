@@ -79,7 +79,9 @@ internal extension BottomSheetView {
             edge: self.isIPadFloatingOrMac ? .top : .bottom
         ))
         .onChange(of: geometry.size) { newValue in
-            self.configuration.sheetHeight(newValue)
+            if let sheetHeight = self.configuration.sheetHeight {
+                sheetHeight(newValue)
+            }
         }
     }
     

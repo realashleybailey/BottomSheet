@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+@available(macOS 11.0, *)
 internal extension BottomSheetView {
     func fullScreenBackground(with geometry: GeometryProxy) -> some View {
         VisualEffectView(visualEffect: self.configuration.backgroundBlurMaterial)
@@ -78,6 +79,9 @@ internal extension BottomSheetView {
         .transition(.move(
             edge: self.isIPadFloatingOrMac ? .top : .bottom
         ))
+        .onChange(of: geometry.size) { newValue in
+            print(newValue)
+        }
     }
     
     func dragIndicator(with geometry: GeometryProxy) -> some View {

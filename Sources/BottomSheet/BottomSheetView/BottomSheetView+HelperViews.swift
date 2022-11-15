@@ -32,7 +32,7 @@ internal extension BottomSheetView {
     }
     
     func bottomSheet(with geometry: GeometryProxy) -> some View {
-        VStack {
+        VStack(spacing: 0) {
             
             Spacer()
             

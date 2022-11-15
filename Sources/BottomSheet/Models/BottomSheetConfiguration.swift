@@ -52,8 +52,6 @@ internal class BottomSheetConfiguration: Equatable {
     var isDragIndicatorShown: Bool = true
     var isFlickThroughEnabled: Bool = true
     var isResizable: Bool = true
-    var sheetGeometries: ((GeometryProxy) -> Void)?
-    var sheetHeight: ((CGSize) -> Void)?
     var isSwipeToDismissEnabled: Bool = false
     var isTapToDismissEnabled: Bool = false
     var onDismiss: () -> Void = {}

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-@available(macOS 11.0, *)
+@available(macOS 14.0, *)
 internal struct BottomSheetView<HContent: View, MContent: View>: View {
     
     // For iPhone landscape and iPad support

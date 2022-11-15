@@ -78,9 +78,10 @@ internal extension BottomSheetView {
         .transition(.move(
             edge: self.isIPadFloatingOrMac ? .top : .bottom
         ))
-        .onChange(of: geometry.size) { newValue in
-            print(newValue)
-        }
+        .onAppear(perform: {
+            print("test")
+            print(geometry)
+        })
     }
     
     func dragIndicator(with geometry: GeometryProxy) -> some View {

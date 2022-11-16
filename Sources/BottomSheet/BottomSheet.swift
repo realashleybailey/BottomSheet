@@ -101,7 +101,7 @@ public extension View {
         bottomSheetPosition: Binding<BottomSheetPosition>,
         switchablePositions: [BottomSheetPosition],
         @ViewBuilder aboveContent: () -> AContent? = {
-            return nil
+            return VStack {}
         },
         @ViewBuilder headerContent: () -> HContent? = {
             return nil

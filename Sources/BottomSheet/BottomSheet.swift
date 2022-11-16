@@ -133,7 +133,9 @@ public extension View {
     func bottomSheet<AContent: View, MContent: View>(
         bottomSheetPosition: Binding<BottomSheetPosition>,
         switchablePositions: [BottomSheetPosition],
-        @ViewBuilder aboveContent: () -> AContent,
+        @ViewBuilder aboveContent: () -> AContent? = {
+            return nil
+        },
         title: String? = nil,
         @ViewBuilder content: () -> MContent
     ) -> BottomSheet<AContent, TitleContent, MContent, Self> {

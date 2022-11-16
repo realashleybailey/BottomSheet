@@ -35,7 +35,6 @@ internal struct BottomSheetView<AContent: View, HContent: View, MContent: View>:
     // Views
     let aboveContent: AContent?
     let headerContent: HContent?
-    
     let mainContent: MContent
     
     let switchablePositions: [BottomSheetPosition]

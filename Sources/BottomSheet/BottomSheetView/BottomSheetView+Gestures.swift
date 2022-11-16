@@ -14,9 +14,6 @@ internal extension BottomSheetView {
                 // Perform custom onChanged action
                 self.configuration.onDragChanged(value)
                 
-                // The height of the currentBottomSheetPosition; if nil main content height is used
-                let currentHeight = self.currentBottomSheetHeight(with: geometry)
-                
                 // Update translation; on iPad floating and Mac the drag direction is reversed
                 self.translation = self.isIPadFloatingOrMac ? -value.translation.height : value.translation.height
                 // Dismiss the keyboard on drag

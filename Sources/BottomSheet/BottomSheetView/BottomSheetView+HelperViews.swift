@@ -32,61 +32,52 @@ internal extension BottomSheetView {
     }
     
     func bottomSheet(with geometry: GeometryProxy) -> some View {
-        VStack(spacing: 0) {
-            
-            Spacer()
-            
-            if let aboveContent = self.aboveContent {
-                aboveContent
+        VStack(
+            alignment: .center,
+            spacing: 0
+        ) {
+            // Drag indicator on the top (iPhone and iPad not floating)
+            if self.configuration.isResizable && self.configuration.isDragIndicatorShown && !self.isIPadFloatingOrMac {
+                self.dragIndicator( with: geometry)
             }
             
-            VStack(
-                alignment: .center,
-                spacing: 0
-            ) {
-                // Drag indicator on the top (iPhone and iPad not floating)
-                if self.configuration.isResizable && self.configuration.isDragIndicatorShown && !self.isIPadFloatingOrMac {
-                    self.dragIndicator( with: geometry)
-                }
-                
-                // The header an main content
-                self.bottomSheetContent(with: geometry)
-                
-                // Drag indicator on the bottom (iPad floating and Mac)
-                if self.configuration.isResizable && self.configuration.isDragIndicatorShown && self.isIPadFloatingOrMac {
-                    self.dragIndicator(with: geometry)
-                }
+            // The header an main content
+            self.bottomSheetContent(with: geometry)
+            
+            // Drag indicator on the bottom (iPad floating and Mac)
+            if self.configuration.isResizable && self.configuration.isDragIndicatorShown && self.isIPadFloatingOrMac {
+                self.dragIndicator(with: geometry)
             }
-            // Set the height and width to its calculated values
-            // The content should be aligned to the top on iPhone,
-            // on iPad floating and Mac to the bottom for transition
-            // to work correctly. Don't set height if `.dynamic...`
-            // and currently not dragging
-            .frame(
-                width: self.width(with: geometry),
-                height: self.bottomSheetPosition.isDynamic && self.translation == 0 ? nil : self.height(with: geometry),
-                alignment: self.isIPadFloatingOrMac ? .bottom : .top
-            )
-            // Clip BottomSheet for transition to work correctly for iPad and Mac
-            .clipped()
-            // BottomSheet background
-            .background(
-                self.bottomSheetBackground(with: geometry)
-            )
-            // On iPad floating and Mac the BottomSheet has a padding
-            .padding(
-                self.isIPadFloatingOrMac ? 10 : 0
-            )
-            // Add safe area top padding on iPad and Mac
-            .padding(
-                .top,
-                self.topPadding
-            )
-            // Make the BottomSheet transition via move
-            .transition(.move(
-                edge: self.isIPadFloatingOrMac ? .top : .bottom
-            ))
         }
+        // Set the height and width to its calculated values
+        // The content should be aligned to the top on iPhone,
+        // on iPad floating and Mac to the bottom for transition
+        // to work correctly. Don't set height if `.dynamic...`
+        // and currently not dragging
+        .frame(
+            width: self.width(with: geometry),
+            height: self.bottomSheetPosition.isDynamic && self.translation == 0 ? nil : self.height(with: geometry),
+            alignment: self.isIPadFloatingOrMac ? .bottom : .top
+        )
+        // Clip BottomSheet for transition to work correctly for iPad and Mac
+        .clipped()
+        // BottomSheet background
+        .background(
+            self.bottomSheetBackground(with: geometry)
+        )
+        // On iPad floating and Mac the BottomSheet has a padding
+        .padding(
+            self.isIPadFloatingOrMac ? 10 : 0
+        )
+        // Add safe area top padding on iPad and Mac
+        .padding(
+            .top,
+            self.topPadding
+        )
+        // Make the BottomSheet transition via move
+        .transition(.move(
+            edge: self.isIPadFloatingOrMac ? .top : .bottom
+        ))
     }
     
     func dragIndicator(with geometry: GeometryProxy) -> some View {
